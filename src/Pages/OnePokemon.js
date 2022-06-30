@@ -11,7 +11,7 @@ const OnePokemon = () => {
 
   useEffect(() => {
     getName();
-  });
+  }, []);
 
   return <div>{poke}</div>;
 };

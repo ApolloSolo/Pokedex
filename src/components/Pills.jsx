@@ -6,9 +6,9 @@ const Pills = (props) => {
   }
   return (
     <Link to={`/one_pokemon/${props.mon.name}`}>
-    <div className="min-w-[150px] h-[28px] bg-slate-500 rounded-md text-center m-1">
+    <div className="min-w-[150px] h-[28px] bg-slate-500 rounded-md text-center m-1 font-semibold">
       <div key={props.mon.name}>
-        {props.mon.name.charAt(0).toUpperCase() + props.mon.name.slice(1)}
+        {props.mon.name[0].toUpperCase() + props.mon.name.slice(1)}
       </div>
     </div>
     </Link>

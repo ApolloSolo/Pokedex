@@ -7,7 +7,7 @@ const Pokemon = () => {
   const [mons, setMons] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pokemonPerPage, setPokemonPerPage] = useState(100);
+  const [pokemonPerPage, setPokemonPerPage] = useState(98);
 
   useEffect(() => {
     const fetchPokes = async () => {
@@ -31,7 +31,7 @@ const Pokemon = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-      <div className="h-[calc(100vh-100px)] flex flex-col items-center justify-between">
+      <div className="h-[calc(100vh-100px)] max-w-[1240px] flex flex-col items-center justify-between mx-auto">
         <div className="flex flex-wrap gap-1 justify-center">
           {currentPokemon.map((mon) => (
             <Pills key={mon.name} mon={mon} loading={loading} />

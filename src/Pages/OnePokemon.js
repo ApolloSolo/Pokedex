@@ -10,13 +10,14 @@ const OnePokemon = () => {
   const getName = () => {
     let path = window.location.pathname.split("/");
     let pokemon = path[path.length - 1];
+    console.log("Path: " + path)
+    console.log("Pokemon name: " + pokemon)
     setPokeName(pokemon);
   };
 
   const getData = async (name) => {
     setLoading(true);
-    const url = `https:pokeapi.co/api/v2/pokemon/${name}`;
-    const response = await fetch(url);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
     const data = await response.json();
     setPokemonData(data);
     setLoading(false);
@@ -46,14 +47,14 @@ const OnePokemon = () => {
     }
   }, [pokemonData]);
 
-  console.log(pokemonData);
-  console.log(speciesData);
+  //console.log(pokemonData);
+  //console.log(speciesData);
 
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
-    <div className="bg-[#C2305C] max-w-[1000px] mx-auto h-[calc(100vh-100px)]">
+    <div className="bg-[#C2305C] max-w-[1000px] mx-auto h-[calc(100vh-100px)] relative">
       <div className="flex justify-between font-bold pt-2 px-4">
         <div>
           <h2 className="text-2xl">
@@ -76,11 +77,11 @@ const OnePokemon = () => {
       </div>
       <img
       alt={pokeName}
-        className="w-[100%] max-w-[250px] block mx-auto mt-2"
+        className="w-[90%] max-w-[250px] block mx-auto mt-2 relative z-40"
         src={pokemonData.sprites.other["official-artwork"].front_default}
       />
-      <div className="h-full w-full bg-slate-200 rounded-t-2xl">
-        <nav className="h-[50px] bg-slate-300 rounded-t-2xl">
+      <div className="w-full absolute bottom-0 md:pb-[10%] pb-36 bg-slate-200 rounded-t-2xl">
+        <nav className="h-[52px] pt-4 bg-slate-300 rounded-t-2xl shadow-lg">
           <ul className="flex justify-evenly pt-2">
             <li>About</li>
             <li>Base Stats</li>
@@ -88,7 +89,7 @@ const OnePokemon = () => {
           </ul>
         </nav>
         <div className="container px-4">
-          <div className="flex mt-2 font-bold text-lg">
+          <div className="flex mt-4 font-bold text-lg">
             <ul className="mr-6">
               <li>Height:</li>
               <li className="mt-2">Weight:</li>
@@ -105,13 +106,13 @@ const OnePokemon = () => {
               </li>
               <li className="flex mt-2">
                 {pokemonData.abilities.map((ability) => (
-                  <p className="mr-2">"{ability.ability.name}"</p>
+                  <p key={ability.ability.name} className="mr-2">"{ability.ability.name}"</p>
                 ))}
               </li>
             </ul>
           </div>
 
-          <div className="about-data mt-4 pt-4 border border-t-[#505050]">
+          <div className="h-full about-data mt-4 pt-4 border border-t-[#505050] text-xl">
             {loading2 || loading ? (
               <>Loading</>
             ) : (

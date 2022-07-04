@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = ({pokemonData, speciesData, loading, loading2}) => {
   return (
-    <div className="container px-4">
+    <section className="container px-4">
           <div className="flex mt-4 font-bold">
             <ul className="mr-6">
               <li>Height:</li>
@@ -40,7 +40,7 @@ const About = ({pokemonData, speciesData, loading, loading2}) => {
               </>
             )}
           </div>
-        </div>
+        </section>
   )
 }
 

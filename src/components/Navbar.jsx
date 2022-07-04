@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="text-[#ff2323] z-50 items-center h-20 flex justify-between border-[#ff0000] max-w-[1240px] mx-auto px-4 border-b-2 font-bold fixed left-0 right-0 top-0 bg-slate-800">
+    <nav className="text-[#ff2323] z-50 items-center h-20 flex justify-between border-[#ff0000] max-w-[1240px] mx-auto px-4 border-b-2 font-bold fixed left-0 right-0 top-0 bg-slate-800">
       <h1 className="text-3xl ">Pokedex</h1>
       <ul className="hidden md:flex">
         <Link to={"/"}>
@@ -44,7 +44,7 @@ const Navbar = () => {
           <li className="p-4">Contact</li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 

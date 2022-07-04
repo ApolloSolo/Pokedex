@@ -18,7 +18,7 @@ let bgStats = [];
   }
 
   return (
-    <div className="grid grid-cols-3 justify-items-center text-center gap-2 px-2 mt-8 pb-20 h-full">
+    <section className="grid grid-cols-3 justify-items-center text-center gap-2 px-2 mt-8 pb-20 h-full">
       {stats.map((stat) => (
         <div
           key={stat.base_stat * Math.random()}
@@ -30,7 +30,7 @@ let bgStats = [];
           <p>{stat.base_stat}</p>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

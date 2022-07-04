@@ -57,7 +57,7 @@ const OnePokemon = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="bg-[#C2305C] max-w-[1000px] mx-auto h-full md:rounded-b-xl">
+    <article className="bg-[#C2305C] max-w-[1000px] mx-auto h-full md:rounded-b-xl">
       <div>
         <div className="flex justify-between font-bold px-4">
           <div>
@@ -103,7 +103,7 @@ const OnePokemon = () => {
         {active === "Stats" && <Stats stats={pokemonData.stats} />}
         {active === "Moves" && <Moves moves={pokemonData.moves} />}
       </div>
-    </div>
+    </article>
   );
 };
 

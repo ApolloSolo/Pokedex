@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 body {
-    background-color: rgb(31 41 55);
-    margin-top: 100px;
+  background-color: rgb(31 41 55);
+  margin-top: 80px;
 }
 
 .backdrop {
-    background-image: url("./assets/images/pokeball.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-image: url("./assets/images/pokeball.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

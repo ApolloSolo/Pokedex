@@ -31,7 +31,7 @@ const Pokemon = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-      <div className="h-[calc(100vh-100px)] max-w-[1240px] flex flex-col items-center justify-between mx-auto">
+      <div className="h-[calc(100vh-100px)] max-w-[1240px] flex flex-col items-center justify-between pt-2 mx-auto">
         <div className="flex flex-wrap gap-1 justify-center">
           {currentPokemon.map((mon) => (
             <Pills key={mon.name} mon={mon} loading={loading} />

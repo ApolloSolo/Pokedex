@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import About from "../components/About";
+import Stats from "../components/Stats";
+import PokeNavbar from "../components/PokeNavbar";
 
 const OnePokemon = () => {
   const [pokeName, setPokeName] = useState("");
@@ -6,12 +9,12 @@ const OnePokemon = () => {
   const [speciesData, setSpeciesData] = useState({});
   const [loading, setLoading] = useState(true);
   const [loading2, setLoading2] = useState(true);
+  const [active, setActive] = useState("About");
+  const activeClass = "font-bold cursor-pointer border-b-2 border-b-[#128921]";
 
   const getName = () => {
     let path = window.location.pathname.split("/");
     let pokemon = path[path.length - 1];
-    console.log("Path: " + path)
-    console.log("Pokemon name: " + pokemon)
     setPokeName(pokemon);
   };
 
@@ -48,85 +51,55 @@ const OnePokemon = () => {
   }, [pokemonData]);
 
   //console.log(pokemonData);
-  //console.log(speciesData);
 
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
-    <div className="bg-[#C2305C] max-w-[1000px] mx-auto h-[calc(100vh-100px)] relative">
-      <div className="flex justify-between font-bold pt-2 px-4">
-        <div>
-          <h2 className="text-2xl">
-            {pokeName[0].toLocaleUpperCase() + pokeName.slice(1)}
-          </h2>
-          <div className="flex">
-            {pokemonData.types.map((type) => (
-              <div
-                className="mr-2 text-center bg-[rgba(207,207,207,0.3)] py-1 px-2 rounded-lg"
-                key={type.type.name}
-              >
-                {type.type.name}
-              </div>
-            ))}
+    <div className="bg-[#C2305C] max-w-[1000px] mx-auto h-[calc(100vh-100px)]">
+      <div>
+        <div className="flex justify-between font-bold px-4">
+          <div>
+            <h2 className="text-2xl mb-1">
+              {pokeName[0].toLocaleUpperCase() + pokeName.slice(1)}
+            </h2>
+            <div className="flex">
+              {pokemonData.types.map((type) => (
+                <div
+                  className="mr-2 text-center bg-[rgba(207,207,207,0.3)] py-1 px-2 rounded-lg"
+                  key={type.type.name}
+                >
+                  {type.type.name}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 text-xl">
+            <p># {pokemonData.order}</p>
           </div>
         </div>
-        <div className="mt-4 text-xl">
-          <p># {pokemonData.order}</p>
-        </div>
+        <img
+          alt={pokeName}
+          className="w-[90%] max-w-[200px] block mx-auto mt-2"
+          src={pokemonData.sprites.other["official-artwork"].front_default}
+        />
       </div>
-      <img
-      alt={pokeName}
-        className="w-[90%] max-w-[250px] block mx-auto mt-2 relative z-40"
-        src={pokemonData.sprites.other["official-artwork"].front_default}
-      />
-      <div className="w-full absolute bottom-0 md:pb-[10%] pb-36 bg-slate-200 rounded-t-2xl">
-        <nav className="h-[52px] pt-4 bg-slate-300 rounded-t-2xl shadow-lg">
-          <ul className="flex justify-evenly pt-2">
-            <li>About</li>
-            <li>Base Stats</li>
-            <li>Moves</li>
-          </ul>
-        </nav>
-        <div className="container px-4">
-          <div className="flex mt-4 font-bold text-lg">
-            <ul className="mr-6">
-              <li>Height:</li>
-              <li className="mt-2">Weight:</li>
-              <li className="mt-2">Abilities:</li>
-            </ul>
-            <ul>
-              <li>
-                {(pokemonData.height / 3.048).toFixed(1)}"{" "}
-                {`(${(pokemonData.height * 10).toFixed(1)} cm)`}
-              </li>
-              <li className="mt-2">
-                {(pokemonData.weight / 4.536).toFixed(1)} lbs.{" "}
-                {`(${(pokemonData.weight * 10).toFixed(1)} kg)`}
-              </li>
-              <li className="flex mt-2">
-                {pokemonData.abilities.map((ability) => (
-                  <p key={ability.ability.name} className="mr-2">"{ability.ability.name}"</p>
-                ))}
-              </li>
-            </ul>
-          </div>
 
-          <div className="h-full about-data mt-4 pt-4 border border-t-[#505050] text-xl">
-            {loading2 || loading ? (
-              <>Loading</>
-            ) : (
-              <>
-                <h3 className="text-2xl font-bold mb-2 text-center">Pokedex Entry</h3>
-                <h4 className="text-lg font-bold">
-                  {speciesData.name[0].toUpperCase() +
-                    speciesData.name.slice(1)}
-                </h4>
-                <p>{speciesData.flavor_text_entries[0].flavor_text}</p>
-              </>
-            )}
-          </div>
-        </div>
+      <div className="w-full bg-slate-200 rounded-t-2xl md:rounded-b-xl">
+        <PokeNavbar
+          active={active}
+          activeClass={activeClass}
+          setActive={setActive}
+        />
+        {active === "About" && (
+          <About
+            pokemonData={pokemonData}
+            speciesData={speciesData}
+            loading={loading}
+            loading2={loading2}
+          />
+        )}
+        {active === "Stats" && <Stats stats={pokemonData.stats} />}
       </div>
     </div>
   );

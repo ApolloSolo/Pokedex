@@ -51,7 +51,7 @@ const OnePokemon = () => {
     }
   }, [pokemonData]);
 
-  console.log(pokemonData.moves);
+  //console.log(pokemonData.moves);
 
   if (loading) {
     return <div>Loading...</div>;

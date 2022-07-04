@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Pokedex with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Available Scripts
+## Table of Contents
+### -[Description](#description)
+### -[Preview](#preview)
+### -[Installation](#installation)
+### -[Technologies](#technologies)
+### -[Contributing Guidelines](#contributing)
+### -[Links](#links)
+### -[Contributors](#contributors)
+### -[Licensing](#license)
 
-In the project directory, you can run:
+## Description
+Another Pokédex App? Yes, and thank you PokéAPI. This pokédex app leverages PokéAPI’s awesome API endpoints to get and display cool Pokémon information. View all Pokémon in existence and check out their stats and move sets. In progress: users will be able create an account and save their favorite Pokémon to reference anytime. 
 
-### `npm start`
+## Preview
+![home-page](./src/assets/images/Screenshot%20(75).png)
+![pokemon-list](./src/assets/images/Screenshot%20(76).png)
+![pokemon-about](./src/assets/images/Screenshot%20(71).png) ![pokemon-stats](./src/assets/images/Screenshot%20(72).png) ![pokemon-stats](./src/assets/images/Screenshot%20(73).png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
+### Instructions for Project Installation:
+After cloning the repository, run "npm i" to ensure all node packages are installed correctly.
+  
+## Technologies
+### Built With:
+React.JS and PokéAPI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Contributing
+### Information Regarding Contributing Guidelines
+Create a fork of the project. Clone to create a local repository. Make changes to your copy the the project, commit and push the changes. When you are ready to share the results of your work, [rebase](https://www.jetbrains.com/help/ruby/contribute-to-projects.html?source=google&medium=cpc&campaign=10116875233&gclid=CjwKCAjwoduRBhA4EiwACL5RPwRCscIRY-jH-olu0ltpGsBNk4a8XTZqANyML6Ff8yHeTCtiOt1hqRoCP5YQAvD_BwE#rebase-fork) your fork on the current HEAD of the master branch in the original project. This is needed to make sure your changes do not conflict with new commits that were pushed after you created your fork. Create a pull request to suggest your changes to the original project.
 
-### `npm test`
+## Links
+GitHub Repository: https://github.com/ApolloSolo/Pokedex
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Live Application (deployed with Netlify): https://pokedex-appsolo.netlify.app/
+  
+## Contributors
+### Please reach out with any questions or concerns!
+-[ApolloSolo](https://github.com/ApolloSolo)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under MIT
+https://api.github.com/licenses/mit

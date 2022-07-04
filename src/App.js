@@ -7,14 +7,14 @@ import OnePokemon from "./Pages/OnePokemon";
 function App() {
   return (
     <Router>
-      <div className="h-full">
+      <main className="h-full">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/pokemon" element={<Pokemon/>}/>
-          <Route path="/one_pokemon/:id" element={<OnePokemon/>}/>
+          <Route path="/:id" element={<OnePokemon/>}/>
         </Routes>
-      </div>
+      </main>
     </Router>
   );
 }

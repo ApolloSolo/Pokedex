@@ -1,8 +1,7 @@
 import React from "react";
 
-let baseClass = "border rounded-md border-[#525252] w-[100%] min-h-[75px] font-bold shadow-lg statBox "
-let greenClass = " bg-[rgba(94,255,54,0.2)]"
-let redClass = " bg-[rgba(200,54,54,0.2)]"
+let baseClass = "border rounded-md border-[#ff2323] w-[100%] min-h-[75px] font-bold shadow-lg statBox flex flex-col justify-center"
+let greenClass = " bg-[rgba(94,255,54,0.2)] border-[#129912]"
 
 const Stats = ({ stats }) => {
 let bgStats = [];
@@ -19,13 +18,13 @@ let bgStats = [];
   }
 
   return (
-    <div className="grid grid-cols-3 justify-items-center text-center gap-2 px-2 mt-8 pb-16">
+    <div className="grid grid-cols-3 justify-items-center text-center gap-2 px-2 mt-8 pb-20 h-full">
       {stats.map((stat) => (
         <div
           key={stat.base_stat * Math.random()}
           className={stat.base_stat > bgStats[0]+bgStats[1] ? baseClass + greenClass : baseClass }
         >
-          <h4 className="mb-auto">
+          <h4 className="">
             {stat.stat.name[0].toUpperCase() + stat.stat.name.slice(1)}
           </h4>
           <p>{stat.base_stat}</p>

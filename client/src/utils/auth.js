@@ -21,8 +21,10 @@ class AuthService {
   }
 
   logout() {
-    localStorage.removeItem("id_token");
+    if(this.loggedIn) {
+      localStorage.removeItem("id_token");
     window.location.assign("/");
+    } else {window.location.assign("/");}
   }
 
   isTokenExpired(token) {

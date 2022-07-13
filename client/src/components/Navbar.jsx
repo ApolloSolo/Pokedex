@@ -9,7 +9,7 @@ const Navbar = () => {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    if (Auth.loggedIn) {
+    if (Auth.loggedIn()) {
       const username = Auth.getProfile();
       setUsername(username.data.username);
     }
@@ -42,10 +42,11 @@ const Navbar = () => {
         </Link>
         {Auth.loggedIn() ? (
           <>
-            <button
+          <div className="relative">
+          <button
               onClick={handleDropdown}
               id="dropBtn"
-              className="h-[25px] text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="h-[25px] min-w-[120px] text-black bg-[#ff2323] font-medium rounded-md px-4 py-2.5 text-center inline-flex items-center"
               type="button"
             >
               {username}{" "}
@@ -70,53 +71,29 @@ const Navbar = () => {
               className={
                 dropdown
                   ? "hidden"
-                  : "z-10 fixed right-28 top-[52px] bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700"
+                  : "z-10 absolute right-[8.3px] top-[24px] bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700"
               }
             >
               <ul
                 className="flex flex-col py-1 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownDefault"
               >
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
+                <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                     Dashboard
-                  </a>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Settings
-                  </a>
+                <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                Settings
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Earnings
-                  </a>
+                <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                Earnings
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Sign out
-                  </a>
+                <li onClick={logout} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                Sign out 
                 </li>
               </ul>
             </div>
-            <li
-              onClick={logout}
-              className="cursor-pointer p-4 hover:scale-105 duration-75"
-            >
-              Log Out
-            </li>
+
+          </div>
           </>
         ) : (
           <>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Auth from "../utils/auth.js"
+import Auth from "../utils/auth.js";
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
@@ -15,16 +15,19 @@ const Login = () => {
         email,
         password,
       }),
-      headers: { "Content-Type": "application/json", 'Access-Control-Allow-Origin':'*' },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
     })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('Success:', data);
-        Auth.login(data.token)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        Auth.login(data.token);
       })
-      .catch(err => {
-        console.log(err)
-      })
+      .catch((err) => {
+        console.table(err);
+      });
   };
 
   const onChange = (event) => {
@@ -47,6 +50,7 @@ const Login = () => {
             name="email"
             placeholder="Enter Your Email"
             onChange={onChange}
+            required
           />
           <input
             className="h-10 pl-4 rounded-md"
@@ -54,8 +58,14 @@ const Login = () => {
             name="password"
             placeholder="Enter Your Password"
             onChange={onChange}
+            required
           />
-          <button type="submit" className="text-white font-bold border-2 hover:bg-[#ff2323] hover:border-[#ff0000] px-4 py-3 my-8 mx-auto flex items-center duration-300 rounded-md">Submit</button>
+          <button
+            type="submit"
+            className="text-white font-bold border-2 hover:bg-[#ff2323] hover:border-[#ff0000] px-4 py-3 my-8 mx-auto flex items-center duration-300 rounded-md"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>

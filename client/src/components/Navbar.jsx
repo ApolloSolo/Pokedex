@@ -5,6 +5,19 @@ import Auth from "../utils/auth.js";
 
 const Navbar = () => {
   const [nav, setNav] = useState(true);
+  const [dropdown, setDropdown] = useState(true);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    if (Auth.loggedIn) {
+      const username = Auth.getProfile();
+      setUsername(username.data.username);
+    }
+  }, []);
+
+  const handleDropdown = () => {
+    setDropdown(!dropdown);
+  };
 
   const handleNav = () => {
     setNav(!nav);
@@ -20,7 +33,7 @@ const Navbar = () => {
       <Link to={"/pokemon"}>
         <h1 className="text-3xl hover:scale-105 duration-75">Pokedex</h1>
       </Link>
-      <ul className="hidden md:flex">
+      <ul className="hidden md:flex items-center">
         <Link to={"/"}>
           <li className="p-4 hover:scale-105 duration-75">Home</li>
         </Link>
@@ -29,7 +42,75 @@ const Navbar = () => {
         </Link>
         {Auth.loggedIn() ? (
           <>
-            <li className="p-4 hover:scale-105 duration-75">My Poke</li>
+            <button
+              onClick={handleDropdown}
+              id="dropBtn"
+              className="h-[25px] text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              type="button"
+            >
+              {username}{" "}
+              <svg
+              id="dropArrow"
+                className="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+            {/* <!-- Dropdown menu --> */}
+            <div
+              className={
+                dropdown
+                  ? "hidden"
+                  : "z-10 fixed right-28 top-[52px] bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700"
+              }
+            >
+              <ul
+                className="flex flex-col py-1 text-sm text-gray-700 dark:text-gray-200"
+                aria-labelledby="dropdownDefault"
+              >
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Earnings
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Sign out
+                  </a>
+                </li>
+              </ul>
+            </div>
             <li
               onClick={logout}
               className="cursor-pointer p-4 hover:scale-105 duration-75"

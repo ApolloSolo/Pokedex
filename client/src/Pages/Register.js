@@ -53,6 +53,7 @@ const Register = () => {
             name="username"
             placeholder="Enter Your Username"
             onChange={onChange}
+            required
           />
 
           <input
@@ -61,6 +62,7 @@ const Register = () => {
             name="email"
             placeholder="Enter Your Email"
             onChange={onChange}
+            required
           />
           <input
             className="my-8 h-10 pl-4 rounded-md"
@@ -68,6 +70,7 @@ const Register = () => {
             name="password"
             placeholder="Enter Your Password"
             onChange={onChange}
+            required
           />
 
           <input
@@ -76,6 +79,7 @@ const Register = () => {
             name="confirmPassword"
             placeholder="Confirm Your Password"
             onChange={onChange}
+            required
           />
           <button
             type="submit"

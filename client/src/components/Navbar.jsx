@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth.js"
 
 const Navbar = () => {
   const [nav, setNav] = useState(true);
-  
 
   const handleNav = () => {
     setNav(!nav);
@@ -20,7 +20,19 @@ const Navbar = () => {
         <Link to={"/pokemon"}>
           <li className="p-4">All Mons</li>
         </Link>
-        <li className="p-4">My Poke</li>
+        {Auth.loggedIn() ? (
+          <>
+           <li className="p-4">My Poke</li>
+          </>
+        ) : (
+          <>
+          <Link to={"/login"}>
+          <li className="p-4">Log In</li>
+          </Link>
+          <li className="p-4">Register</li>
+          </>
+        )}
+    
       </ul>
       <div onClick={handleNav} className="block md:hidden">
         {!nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}

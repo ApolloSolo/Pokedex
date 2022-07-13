@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Pokemon from "./Pages/Pokemon";
 import OnePokemon from "./Pages/OnePokemon";
 import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/pokemon" element={<Pokemon/>}/>
           <Route path="/:id" element={<OnePokemon/>}/>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       </main>
     </Router>

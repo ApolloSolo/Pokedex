@@ -17,9 +17,9 @@ const Navbar = () => {
 
   return (
     <nav className="text-[#ff2323] z-50 items-center h-20 flex justify-between border-[#ff0000] max-w-[1240px] mx-auto px-4 border-b-2 font-bold fixed left-0 right-0 top-0 bg-slate-800">
-     <Link to={"/pokemon"}>
-     <h1 className="text-3xl hover:scale-105 duration-75">Pokedex</h1>
-     </Link>
+      <Link to={"/pokemon"}>
+        <h1 className="text-3xl hover:scale-105 duration-75">Pokedex</h1>
+      </Link>
       <ul className="hidden md:flex">
         <Link to={"/"}>
           <li className="p-4 hover:scale-105 duration-75">Home</li>
@@ -30,14 +30,21 @@ const Navbar = () => {
         {Auth.loggedIn() ? (
           <>
             <li className="p-4 hover:scale-105 duration-75">My Poke</li>
-            <li onClick={logout} className="cursor-pointer p-4 hover:scale-105 duration-75">Log Out</li>
+            <li
+              onClick={logout}
+              className="cursor-pointer p-4 hover:scale-105 duration-75"
+            >
+              Log Out
+            </li>
           </>
         ) : (
           <>
             <Link to={"/login"}>
               <li className="p-4 hover:scale-105 duration-75">Login</li>
             </Link>
-            <li className="p-4 hover:scale-105 duration-75">Register</li>
+            <Link to={"/register"}>
+              <li className="p-4 hover:scale-105 duration-75">Register</li>
+            </Link>
           </>
         )}
       </ul>

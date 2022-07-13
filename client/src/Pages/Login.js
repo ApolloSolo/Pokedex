@@ -3,7 +3,7 @@ import Auth from "../utils/auth.js"
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -19,14 +19,16 @@ const Login = () => {
     })
     .then((response) => response.json())
     .then((data) => {
+      console.log('Success:', data);
         Auth.login(data.token)
-        console.log('Success:', data);
+      })
+      .catch(err => {
+        console.log(err)
       })
   };
 
   const onChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
-    console.log(formValues);
   };
 
   const onSubmit = (event) => {
@@ -36,24 +38,24 @@ const Login = () => {
 
   return (
     <div className="text-center max-w-[1200px] mt-32 md:mt-[15%] h-[calc(100vh-80px)] p-4 mx-auto">
-      <h2 className="text-4xl text-[#ff2323]">Log In</h2>
+      <h2 className="text-4xl text-[#ff2323]">Login</h2>
       <div>
         <form onSubmit={onSubmit} className="flex flex-col">
           <input
-            className="mt-4 h-10 pl-4 rounded-md"
+            className="my-8 h-10 pl-4 rounded-md"
             type="email"
             name="email"
             placeholder="Enter Your Email"
             onChange={onChange}
           />
           <input
-            className="mt-4 h-10 pl-4 rounded-md"
+            className="h-10 pl-4 rounded-md"
             type="password"
             name="password"
             placeholder="Enter Your Password"
             onChange={onChange}
           />
-          <button type="submit">Submit</button>
+          <button type="submit" className="text-white font-bold border-2 hover:bg-[#ff2323] hover:border-[#ff0000] px-4 py-3 my-8 mx-auto flex items-center duration-300 rounded-md">Submit</button>
         </form>
       </div>
     </div>

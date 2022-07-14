@@ -9,7 +9,7 @@ const Home = () => {
         <h2 className="text-[#ff2323] font-mono font-bold mt-2 lg:ml-4">
           P
           <CgPokemon className="text-[#ff1111] h-[55px] w-[55px] inline m-[-3px]" />
-          kedex
+          kédex
         </h2>
       </div>
     </section>

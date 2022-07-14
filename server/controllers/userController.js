@@ -1,4 +1,4 @@
-const { User } = require("../models/index");
+const { User, PokeTeam, OnePokemon } = require("../models/index");
 const asyncHandler = require("express-async-handler");
 const { generateToken } = require("../utils/generateJWT");
 
@@ -7,9 +7,21 @@ const {
   validateLoginInput,
 } = require("../utils/validators");
 
+const getMe = async (req, res) => {
+  let user = await User.findById({_id: req.user._id}).select("-password -__v")
+  console.log(user);
+  res.status(200).json(user);
+};
+
 const getUsers = asyncHandler(async (req, res) => {
-  console.log(req.user);
-  const users = await User.find({}).select("-__v -password");
+  //console.log(req.user);
+  const users = await User.find({})
+    // .populate("team")
+    // .populate({
+    //   path: "team",
+    //   populate: "pokemon",
+    // })
+    .select("-__v -password");
 
   res.status(200).json(users);
 });
@@ -81,11 +93,16 @@ const loginUser = asyncHandler(async (req, res) => {
     _id: foundUser._id,
     username: foundUser.username,
     email: foundUser.email,
-    token: generateToken(foundUser),
+    token: generateToken({
+      _id: foundUser._id,
+      username: foundUser.username,
+      email: foundUser.email,
+    }),
   });
 });
 
 module.exports = {
+  getMe,
   getUsers,
   registerUser,
   loginUser,

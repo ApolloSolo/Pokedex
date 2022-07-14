@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <nav className="text-[#ff2323] z-50 items-center h-20 flex justify-between border-[#ff0000] max-w-[1240px] mx-auto px-4 border-b-2 font-bold fixed left-0 right-0 top-0 bg-slate-800">
       <Link to={"/pokemon"}>
-        <h1 className="text-3xl hover:scale-105 duration-75">Pokedex</h1>
+        <h1 className="text-3xl hover:scale-105 duration-75">Pokédex</h1>
       </Link>
       <ul className="hidden md:flex items-center">
         <Link to={"/"}>
@@ -82,10 +82,10 @@ const Navbar = () => {
                     Dashboard
                 </li>
                 <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                Settings
+                My Poké
                 </li>
                 <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                Earnings
+                Daily Catch
                 </li>
                 <li onClick={logout} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
                 Sign out 

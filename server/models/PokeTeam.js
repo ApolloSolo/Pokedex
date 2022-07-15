@@ -17,9 +17,9 @@ const pokeTeamSchema = new Schema(
   }
 );
 
-// pokeTeamSchema.virtual("teamCount").get(function () {
-//   return this.length;
-// });
+pokeTeamSchema.virtual("teamCount").get(function () {
+  return this.pokemon.length;
+});
 
 const PokeTeam = model("PokeTeam", pokeTeamSchema);
 
